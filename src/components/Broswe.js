@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './Header';
 
 const Broswe = () => {
   return (
-    <div>Broswe</div>
+    <div>
+      <Header />
+    </div>
   )
 }
 
-export default Broswe
+export default Broswe;
