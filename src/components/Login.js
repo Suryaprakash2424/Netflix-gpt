@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
@@ -7,14 +7,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { adduser } from "../utils/userSlice";
+import { USER_AVATAR ,BG_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -37,12 +36,11 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           // navigate("/browse");
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://lh3.googleusercontent.com/a/ACg8ocLBiXbzA1HacwCPyc8tzpb-QPQUIH7An8toSXseWjcs0tH1Owgd=s83-c-mo",
+            photoURL: USER_AVATAR ,
           })
             .then(() => {
               // Profile updated!
@@ -58,13 +56,11 @@ const Login = () => {
                 photoURL: photoURL
               })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
-              setErrorMessage(error);
+              setErrorMessage(error.message);
             });
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -81,17 +77,14 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
-
+          // console.log(user);
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "-" + errorMessage);
           setErrorMessage(errorCode + "-" + errorMessage);
-          navigate("/");
+          // navigate("/");
         });
     }
   };
@@ -106,7 +99,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="w-full"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/ce449112-3294-449a-b8d3-c4e1fdd7cff5/web/IN-en-20241202-TRIFECTA-perspective_0acfb303-6291-4ad1-806f-dda785f6295a_medium.jpg"
+          src={BG_URL}
           alt="bg"
         />
       </div>
@@ -148,7 +141,7 @@ const Login = () => {
           <p className=" cursor-pointer " onClick={toggleSignInForm}>
             {isSignInForm
               ? "New to Netflix? Sign up Now"
-              : "Already resgistered. Sign In Now"}
+              : "Already resgistered?. Sign In Now"}
           </p>
         </form>
       </div>

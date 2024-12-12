@@ -9,8 +9,8 @@ const userSlice = createSlice({
         },
         removeuser: (state, action) => {
             return null;
-        }
-    }
+        },
+    },
 });
 
 export const { adduser, removeuser } = userSlice.actions;
