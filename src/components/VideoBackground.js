@@ -7,9 +7,9 @@ const VideoBackground = ({ movieId }) => {
     console.log(trailervideo);
 
   return (
-    <div className="w-full ">
+    <div className="w-screen ">
       <iframe
-        className="w-full h-auto aspect-video absolute bg-gradient-to-r from-black"
+        className="w-screen aspect-video bg-gradient-to-r from-black"
         src={
           "https://www.youtube.com/embed/" +
           trailervideo?.key +
