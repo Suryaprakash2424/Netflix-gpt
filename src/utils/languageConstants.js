@@ -12,10 +12,9 @@ const lang = {
         gptSearchPlaceholder: "¿Qué te gustaría ver hoy?",
       },
 }
-
-export default lang;
 export const SUPPORTED_LANGUAGES = [
     { identifier: "en", name: "English" },
     { identifier: "hindi", name: "HIndi" },
     { identifier: "spanish", name: "Spanish" },
 ];
+export default lang;

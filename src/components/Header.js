@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { adduser, removeuser } from '../utils/userSlice';
 import { LOGO_URL } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice';
-import lang, { SUPPORTED_LANGUAGES } from '../utils/languageConstants';
+import { SUPPORTED_LANGUAGES } from '../utils/languageConstants';
 import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
@@ -66,8 +66,8 @@ const Header = () => {
   
 
   return (
-    <div className='absolute w-full bg-gradient-to-b from-black z-20 flex justify-between'>
-      <img className='w-48' src={LOGO_URL} alt='logo' />
+    <div className='absolute w-screen bg-gradient-to-b from-black z-20 flex justify-between md'>
+      <img className='w-48 md:mx-0 mx-auto' src={LOGO_URL} alt='logo' />
       {user && (<div
         className='flex p-2'>
         {showGptSearch && <select
