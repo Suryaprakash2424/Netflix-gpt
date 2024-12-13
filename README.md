@@ -25,7 +25,9 @@
 - Create movieSlice
 - Updating the store with the movie data
 - Fetch and storing the trailer data to store
-- Embedded the trailer from youtube
+- Embedded the trailer from youtube.
+- Gpt search Bar
+- Multi-Lang feature in our App
 - 
 
 

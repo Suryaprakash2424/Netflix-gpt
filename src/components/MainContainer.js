@@ -4,7 +4,7 @@ import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
     const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-    console.log(movies)
+    // console.log(movies)
     // Early Return----
     if (!movies) return;
     const mainMovie = movies[0];
